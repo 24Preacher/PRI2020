@@ -1,0 +1,40 @@
+header{
+    margin: -8px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
+    background-color: darkgray;
+}
+
+p {
+    text-align: justify;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 42px;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-size: 36;
+    font-family: sans-serif;
+}
+
+h4{
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 3px;
+    background-color: darkgray;
+    font-size: 14px;
+}
+
