@@ -23,6 +23,9 @@
         </paragrafos>
     </abstract>
     <deliverables>
-        <ref href=""></ref>
+        <ref href="https://github.com/24Preacher/PRI2020/blob/main/TP2/projRecord.dtd">DTD - Project Record</ref>
+        <ref href="https://github.com/24Preacher/PRI2020/blob/main/TP2/projectRecord.xml">Project Record - XML</ref>
+        <ref href="https://github.com/24Preacher/PRI2020/blob/main/TP2/arqueossitios.xml">Arqueossitios - XML</ref>
+        <ref href="https://github.com/24Preacher/PRI2020/blob/main/TP2/arqueossitios.txt">Questões Xpath - Arqueossítios</ref>
     </deliverables>
 </projectRecord>
