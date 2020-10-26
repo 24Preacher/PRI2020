@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE projectRecord SYSTEM "file:/home/preacher/Mestrado/PRI2020/TP2/projRecord.dtd">
+<projectRecord>
+    <title>TP2</title>
+    <dados>
+        <key_name>PRI_TP2</key_name>
+        <title>DTD's</title>
+        <subtitle>TPC2 de PRI sobre DTDs</subtitle>
+        <begin_date>19-10-2020</begin_date>
+        <end_date>26-10-2020</end_date>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho></supervisor>
+    </dados>
+    <workteam>
+        <elemento>
+            <nome>Pedro Medeiros</nome>
+            <email>a80580</email>
+        </elemento>
+    </workteam>
+    <abstract>
+        <paragrafos>
+            <frases>Este projecto é integrado na UC de Processamento e Reconhecimento de Informação como segundo TPC - <bold>TP2</bold>.</frases>
+            <frases>Também foram solicitadas a resposta a algumas questões relacionadas com arqueossítios, utilizando <italic>Xpath</italic></frases>
+        </paragrafos>
+    </abstract>
+    <deliverables>
+        <ref href=""></ref>
+    </deliverables>
+</projectRecord>

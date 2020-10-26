@@ -1,0 +1,11 @@
+1)
+
+/ARQSITS/ARQELEM[contains(CONCEL,'Amares')]/IDENTI
+
+2)
+
+/ARQSITS/ARQELEM[//LIGA/@TERMO = 'micáceo']/IDENTI
+
+3)
+
+/ARQSITS/ARQELEM[/@CONCEL='Barcelos' | //LIGA/@TERMO='romanização']/IDENT
