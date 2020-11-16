@@ -37,8 +37,43 @@ var servidor = http.createServer(function(req, res) {
                     res.write('<p>Pedido nao suportado: ' + req.method + '</p>');
                     res.end();
                 });
-                //Cursos
-        } else if (req.url == '/cursos') {
+        } else if (req.url.match(/\/alunos\/[AE]+[0-9-]+/)) {
+            var num = req.url.split("/")[2];
+
+            axios.get('http://localhost:3000/alunos/'+ num)
+                .then((resp) => {
+
+                    res.writeHead(200, {
+                        'Content-type': 'text/html; charset=utf-8'
+                    })
+
+                    aluno = resp.data;
+                    res.write('<ul>');
+                    
+                    res.write(`<h3>Aluno ${aluno.id}</h3>`);
+                    res.write(`<p>Nome: ${aluno.nome}</p>`);
+                    res.write(`<p>Número de aluno: ${aluno.id}</p>`);
+                    res.write(`<p>Data de Nascimento: ${aluno.dataNasc}</p>`);
+                    res.write(`<p>Curso: <a href=\"http://localhost:3001/cursos/${aluno.curso}\">${aluno.curso}</a></p>`);
+                    console.log(aluno.curso);
+                    res.write(`<p>Ano do Curso: ${aluno.anoCurso}</p>`);
+                    res.write(`<p>Instrumento: ${aluno.instrumento}</a></p>`);
+
+                    res.write('<p><a href=\"http://localhost:3001/alunos\">Voltar aos Alunos</a></p>');
+                    res.write('<a href=\"http://localhost:3001/\">Voltar ao Inicio</a>');
+
+                    res.write('</ul>');
+                    res.end();
+                }).catch((err) => {
+                    console.log('Erro :'+err);
+                    res.write('<p>Pedido nao suportado: ' + req.method + '</p>');
+                    res.end();
+                });
+        }
+
+        //Cursos
+        
+        else if (req.url == '/cursos') {
             res.writeHead(200, {
                 'Content-Type': 'text/html; charset=utf-8'
             })
@@ -58,8 +93,33 @@ var servidor = http.createServer(function(req, res) {
                     res.write('<p>Pedido nao suportado: ' + req.method + '</p>');
                     res.end();
                 });
-                // Instrumentos
-        } else if (req.url == '/instrumentos') {
+        } else if(req.url.match(/\/cursos\/[CBS]+[0-9]+/)){
+            console.log(req.url);
+            var i = req.url.split("/")[2];
+            axios.get('http://localhost:3000/cursos/'+ i)
+                .then((resp) => {
+                    res.writeHead(200, {
+                        'Content-type': 'text/html; charset=utf-8'
+                    })
+                    c = resp.data;
+                    res.write('<ul>');
+                    res.write(`<h3>Curso</h3>`);
+                    res.write(`<p>Id: ${c.id}</p>`);
+                    res.write(`<p>Designação: ${c.designacao}</p>`);
+                    res.write(`<p>Duração: ${c.duracao}</p>`);
+                    res.write(`<p>Instrumento: ${aluno.instrumento}</a></p>`);
+                    res.write('<p><a href=\"http://localhost:3001/cursos\">Voltar aos Cursos</a></p>');
+                    res.write('<a href=\"http://localhost:3001/\">Voltar ao Inicio</a>');
+                    res.write('</ul>');
+                    res.end();
+                }).catch((err) => {
+                    console.log('Erro :'+err);
+                    res.write('<p>Pedido nao suportado: ' + req.method + '</p>');
+                    res.end();
+                });
+        }
+        // Instrumentos
+        else if (req.url == '/instrumentos') {
             res.writeHead(200, {
                 'Content-type': 'text/html; charset=utf-8'
             })
@@ -80,7 +140,32 @@ var servidor = http.createServer(function(req, res) {
                     res.end();
                 });
         }
-    } else {
+    }else if(req.url.match(/\/instrumentos\/I[0-9]+/)){
+        var i = req.url.split("/")[2];
+        axios.get('http://localhost:3000/instrumentos/'+ i)
+            .then((resp) => {
+                res.writeHead(200, {
+                    'Content-type': 'text/html; charset=utf-8'
+                })
+                c = resp.data[0];
+                res.write('<ul>');
+                res.write(`<h3>Instrumento</h3>`);
+                res.write(`<p>Id: ${c.id}</p>`);
+                res.write(`<p>Designação: ${c["#text"]}</p>`);                
+                res.write('<p><a href=\"http://localhost:3001/instrumentos\">Voltar aos Instrumentos</a></p>');
+                res.write('<a href=\"http://localhost:3001/\">Voltar ao Inicio</a>');
+                res.write('</ul>');
+                res.end();
+            }).catch((err) => {
+                console.log('Erro :'+err);
+                res.write('<p>Pedido nao suportado: ' + req.method + '</p>');
+                res.end();
+            });
+
+
+
+        }
+         else {
         res.writeHead(200, {
             'Content-Type': 'text/html'
         })
