@@ -142,7 +142,7 @@ var servidor = http.createServer(function(req, res) {
         }
     }else if(req.url.match(/\/instrumentos\/I[0-9]+/)){
         var i = req.url.split("/")[2];
-        axios.get('http://localhost:3000/instrumentos/'+ i)
+        axios.get('http://localhost:3000/instrumentos?id='+ i)
             .then((resp) => {
                 res.writeHead(200, {
                     'Content-type': 'text/html; charset=utf-8'
