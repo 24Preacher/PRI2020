@@ -152,75 +152,6 @@ var toDoListServer = http.createServer(function (req, res) {
         }
         break
 
-        case "POST":
-            if((req.url == "/") || (req.url == "/toDoList")){
-                recuperaInfo(req, info => {
-                    console.log('Post :' + JSON.stringify(info))
-                    axios.post('http://localhost:3000/toDoList', info)
-                    .then(resp => {
-                        res.writeHead(302, {'Location': '' + req.url});
-                        res.end() 
-                    })
-                    .catch(erro => {
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write('<p>Erro no Post:' + erro + '</p>')
-                        res.write('<p><a href="/">Voltar</a></p>')
-                        res.end()
-                    })
-                })
-            }
-            else if((req.url == "/confirmation")){
-                lista = res.data
-                console.log("sss"+lista)
-                recuperaInfo(req, info => {
-                    console.log('Confirmatiom :' + JSON.stringify(info))
-                    axios.post('http://localhost:3000/vistoCancelado', info)
-                    .then(resp => {
-                        res.writeHead(302, {'Location': '' + req.url});
-                        res.end() 
-                    })
-                    .catch(erro => {
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write('<p>Erro no Post:' + erro + '</p>')
-                        res.write('<p><a href="/">Voltar</a></p>')
-                        res.end()
-                    })
-                })
-            }
-            
-            else {
-                res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                res.write("<p>" + req.url + " não suportado neste serviço.</p>")
-                res.end()
-            }
-            break
-
-        case "Add" :
-            if((req.url == "/") || (req.url == "/toDoList")){
-                recuperaInfo(req, info => {
-                    console.log('Add :' + JSON.stringify(info))
-                    axios.post('http://localhost:3000/vistoCancelado', info)
-                    .then(resp => {
-                        res.writeHead(302, {'Location': '' + req.url});
-                        res.end() 
-                    })
-                    .catch(erro => {
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write('<p>Erro no Post:' + erro + '</p>')
-                        res.write('<p><a href="/">Voltar</a></p>')
-                        res.end()
-                    })
-                })
-            }
-            
-            else {
-                res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                res.write("<p>" + req.url + " não suportado neste serviço.</p>")
-                res.end()
-            }
-
-            break
-
         default: 
             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
             res.write("<p>" + req.method + " não suportado neste serviço.</p>")
@@ -228,5 +159,5 @@ var toDoListServer = http.createServer(function (req, res) {
     }
 })
 
-toDoListServer.listen(4444)
-console.log('Servidor à escuta na porta 4444...')
+toDoListServer.listen(3001)
+console.log('Servidor à escuta na porta 3001...')

@@ -1,0 +1,25 @@
+{
+    "toDoList": [
+      {
+        "id": "1",
+        "dateCreated": "21-11-2020",
+        "dateDued": "24-12-2020",
+        "responsavel": "Pedro Medeiros",
+        "descricao": "Entrega do trabalho prático de PRI"
+      },
+      {
+        "id": "2",
+        "dateCreated": "11-12-2020",
+        "dateDued": "4-1-2021",
+        "responsavel": "Pedro Medeiros",
+        "descricao": "Ida aos Açores"
+      },
+      {
+        "id": "3",
+        "dateCreated": "19-12-2020",
+        "dateDued": "4-1-2021",
+        "responsavel": "JCR",
+        "descricao": "Férias"
+      }
+    ]
+  }
